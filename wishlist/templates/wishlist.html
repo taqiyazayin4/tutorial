@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- <h5>Nama: </h5>
-<p>{{nama}}</p> -->
+
 
 <nav class="navbar mx-auto rounded-bottom rounded-2">
     <div class="container-fluid">
       <button type="button" style="position: absolute; right: 0;"><a href="{% url 'wishlist:logout' %}">Keluar</a>
-        <!-- <span class="navbar-toggler-icon"></span> -->
+       
       </button>
     </div>
 </nav>
@@ -34,6 +33,5 @@
 
 <p>Sesi terakhir login: {{ last_login }}</p>
 
-<!-- <button><a href="{% url 'wishlist:logout' %}">Keluar</a></button> -->
 
 {% endblock content %}
