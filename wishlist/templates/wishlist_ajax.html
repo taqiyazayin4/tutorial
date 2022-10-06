@@ -5,15 +5,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $.get("https://localhost:8000/wishlist/json/", function(data) {
-            for (i=0; i<data.length; i++){
-                $(".barang").append(
-                    `<tr>
-                        <td>${data[i].fields.nama_barang}</td>
-                        <td>${data[i].fields.harga_barang}</td><
-                        td>${data[i].fields.deskripsi}</td></tr>`
-                )
-            }
+        $.getJSON( "{% url 'wishlist:show_json' %}", function (data) {
+                var container = '';
+    
+                $.each(data, function (key, value) {
+                    container += '<tr>';
+
+                    container += '<td>' + value.fields.nama_barang + '</td>';
+    
+                    container += '<td>' + value.fields.harga_barang + '</td>';
+    
+                    container += '<td>' + value.fields.deskripsi + '</td>';
+    
+                    container += '</tr>';
+                });
+                  
+                $('#table').append(barang);
+            
         });
 
         $("#submit_btn").click(function(){

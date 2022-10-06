@@ -89,14 +89,14 @@ def create_ajax(request):
         harga_barang = request.POST.get("harga_barang")
         deskripsi = request.POST.get("deskripsi")
 
-        new_barang = BarangWishlist(
-            nama_barang=nama_barang,
-            harga_barang=harga_barang,
-            deskripsi=deskripsi,
+        barang = BarangWishlist(
+            nama_barang = nama_barang,
+            harga_barang = harga_barang,
+            deskripsi = deskripsi,
         )
-        new_barang.save()
+        barang.save()
         return HttpResponse(
-            serializers.serialize("json", [new_barang]),
+            serializers.serialize("json", [barang]),
             content_type="application/json",
         )
-    return HttpResponse("Invalid")
+    return show_ajax(request);
